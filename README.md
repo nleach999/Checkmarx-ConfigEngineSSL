@@ -45,3 +45,7 @@ A comma-delimited array of paths where public keys used for signature validation
 Parameter: **-EngineServiceAccount**
 
 Defaults to "NT AUTHORITY\NETWORK SERVICE".  If a custom domain service account is being used to execute the SAST services, provide the custom account in this parameter.
+
+
+# Installing on the Server
+The scripts in the root of this folder along with the **support** folder are required for execution.

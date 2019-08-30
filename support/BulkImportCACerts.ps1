@@ -16,6 +16,7 @@ foreach($CerPath in $CerPaths)
         $searchDir = [System.IO.Path]::GetDirectoryName($CerPath)
         $importFiles = [System.IO.Directory]::GetFiles($searchDir, $searchSpec)
     }
+    
     foreach ($filePath in $importFiles)
     {
       & "$PSScriptRoot\ImportCACert.ps1" -FilePath $filePath

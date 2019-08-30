@@ -3,7 +3,10 @@
 A script used for configuring Checkmarx Engine servers to use SSL for communications.
 
 .DESCRIPTION
-
+Running this script where a CxEngine is installed updates the settings for the CxEngine service to only accept
+SSL communications.  This script assumes that the services on the manager have also been configured to communicate
+with the CxEngine service over SSL.  This script also assumes that the engine URI has already been entered into
+the engine manager screen on the Checkmarx web client.
 
 .PARAMETER CxInstallRoot
 The path to the folder where the Checkmarx software has been installed.  Defaults to C:\Program Files\Checkmarx

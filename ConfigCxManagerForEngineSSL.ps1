@@ -30,7 +30,7 @@ $ErrorActionPreference = 'Stop'
 
 
 $jobsManagerCfg = [System.IO.Path]::Combine($CxInstallRoot, "Checkmarx Jobs Manager", "bin", "CxJobsManagerWinService.exe.config")
-$scansManagerCfg = [System.IO.Path]::Combine($CxInstallRoot, "Checkmarx Scan Manager", "bin", "CxScansManagerWinService.exe.config")
+$scansManagerCfg = [System.IO.Path]::Combine($CxInstallRoot, "Checkmarx Scans Manager", "bin", "CxScansManagerWinService.exe.config")
 $systemManagerCfg = [System.IO.Path]::Combine($CxInstallRoot, "Checkmarx System Manager", "bin", "CxSystemManagerService.exe.config")
 
 & "$PSScriptRoot\support\UpdateCxManagerToUseEngineOverSSL.ps1" -FilePath $jobsManagerCfg

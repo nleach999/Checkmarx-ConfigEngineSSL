@@ -14,6 +14,12 @@ foreach($CerPath in $CerPaths)
     {
         $searchSpec = [System.IO.Path]::GetFileName($CerPath)
         $searchDir = [System.IO.Path]::GetDirectoryName($CerPath)
+        
+        if ([System.String]::IsNullOrEmpty($searchDir))
+        {
+            $searchDir = $(pwd)
+        }
+
         $importFiles = [System.IO.Directory]::GetFiles($searchDir, $searchSpec)
     }
     

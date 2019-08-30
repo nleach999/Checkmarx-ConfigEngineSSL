@@ -39,24 +39,8 @@ $engineWCFConfig = [System.IO.Path]::Combine($CxInstallRoot, "Checkmarx Engine S
     "CxSourceAnalyzerEngine.WinService.exe.config")
 
 & "$PSScriptRoot\support\UpdateCxEngineConfigForSSL.ps1" -FilePath $engineWCFConfig
+& "$PSScriptRoot\support\BulkImportCACerts.ps1" -CerPaths $CerPaths
 
-foreach($CerPath in $CerPaths)
-{
-    if ([System.IO.Directory]::Exists($CerPath) )
-    {
-        $importFiles = [System.IO.Directory]::GetFiles($CerPath)
-    }
-    else
-    {
-        $searchSpec = [System.IO.Path]::GetFileName($CerPath)
-        $searchDir = [System.IO.Path]::GetDirectoryName($CerPath)
-        $importFiles = [System.IO.Directory]::GetFiles($searchDir, $searchSpec)
-    }
-    foreach ($filePath in $importFiles)
-    {
-      & "$PSScriptRoot\support\ImportCACert.ps1" -FilePath $filePath
-    }
-}
 
 $certThumbprint = (& "$PSScriptRoot\support\ImportServerCert.ps1" -FilePath $PfxPath -PrivateKeyPassword $PfxPassword).Thumbprint
 $netshCertGuid = "{" + [System.Guid]::NewGuid().ToString() + "}"
